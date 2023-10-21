@@ -7,8 +7,6 @@ import Register from "../components/auth/Register";
 
 
 
-
-
 const router = createBrowserRouter([
     {
         path: "/",

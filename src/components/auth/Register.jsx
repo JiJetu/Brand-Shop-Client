@@ -7,7 +7,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
-    const {createUser} = useContext(AuthContext);
+    const { createUser } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -21,15 +21,30 @@ const Register = () => {
         const password = e.target.password.value;
         console.log(displayName, photo, email, password);
 
-        
+        if (password.length < 6) {
+            toast('Your Password must be 6 character or above')
+            return;
+        }
+        else if (!/[A-Z]/.test(password)) {
+            toast('your password must be one character in uppercase')
+            return;
+        }
+        else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\-]/.test(password)) {
+            toast('your password must be one special character')
+            return
+        }
+
+
+
         createUser(photo, email, password)
-        .then((result) => {
-            toast("Register successfully");
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch((err) => {
-            toast(err)
-        });
+            .then((result) => {
+                toast("Register successfully");
+                navigate(location?.state ? location.state : '/')
+                toast("Register successfully");
+            })
+            .catch((err) => {
+                toast(err)
+            });
     }
 
 
