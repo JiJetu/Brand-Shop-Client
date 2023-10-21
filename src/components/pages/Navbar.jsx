@@ -1,7 +1,8 @@
 import { Link, NavLink } from "react-router-dom";
 import userDefaultPicture from "../../assets/user.png"
 import { useContext } from "react";
-import { AuthContext } from "../../providers/AuthProvider";
+import { AuthContext } from "../provider/AuthProvider";
+
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
