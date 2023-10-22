@@ -22,8 +22,8 @@ const Navbar = () => {
 
         {
             user && <>
-                <li><NavLink to="/about">About</NavLink></li>
-                <li><NavLink to="/contact">Contact Us</NavLink></li>
+                <li><NavLink to="/addProduct">Add Product</NavLink></li>
+                <li><NavLink to="/contact">My Cart</NavLink></li>
             </>
 
         }
@@ -41,7 +41,7 @@ const Navbar = () => {
                             {navLinks}
                         </ul>
                     </div>
-                    <a className="btn btn-ghost normal-case text-xl">GameOn Galaxy</a>
+                    <a className="btn normal-case text-xl">WiredInnovators</a>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -53,7 +53,7 @@ const Navbar = () => {
                         user ?
                             <>
                                 <label tabIndex={0} className="btn btn-ghost hidden md:inline-block btn-circle avatar mr-3">
-                                    <div className="w-10 rounded-full">
+                                    <div className="w-full rounded-full">
                                         <img src={user.photoURL} />
                                     </div>
                                 </label>
@@ -62,7 +62,7 @@ const Navbar = () => {
 
                             : <>
                                 <label tabIndex={0} className="btn btn-ghost btn-circle hidden md:inline-block  avatar mr-3">
-                                    <div className="w-10 rounded-full">
+                                    <div className="w-full rounded-full">
                                         <img src={userDefaultPicture} />
                                     </div>
                                 </label>

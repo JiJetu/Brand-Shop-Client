@@ -2,7 +2,6 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Navbar from "../pages/Navbar";
 import { AuthContext } from "../provider/AuthProvider";
 
 
@@ -50,7 +49,6 @@ const Register = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
             <div className="hero min-h-screen bg-base-200">
                 <div className="hero-content flex-col">
                     <div className="text-center">

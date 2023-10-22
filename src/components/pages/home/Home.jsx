@@ -1,12 +1,18 @@
-import Navbar from "../Navbar";
 import Footer from '../Footer';
+import Banner from './Banner';
+import Brand from './Brand';
+import Team from './Team';
+import Client from './client';
 
 const Home = () => {
 
 
     return (
         <div>
-            <Navbar></Navbar>
+            <Banner></Banner>
+            <Brand></Brand>
+            <Team></Team>
+            <Client></Client>
             <Footer></Footer>
         </div>
     );

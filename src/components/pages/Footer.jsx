@@ -2,10 +2,7 @@ const Footer = () => {
     return (
         <footer className="footer footer-center p-10 bg-gray-200 text-black">
             <aside>
-                <a className="btn btn-ghost normal-case text-xl">GameOn Galaxy</a>
-                <p className="font-bold">
-                    ACME Industries Ltd. <br />Providing reliable tech since 1992
-                </p>
+                <a className="normal-case text-xl">WiredInnovators</a>
                 <p>Copyright © 2023 - All right reserved</p>
             </aside>
             <nav>
