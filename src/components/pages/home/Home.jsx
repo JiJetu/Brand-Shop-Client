@@ -8,6 +8,7 @@ import Client from './client';
 const Home = () => {
 
     const brands = useLoaderData();
+    console.log(brands);
 
     
     return (
