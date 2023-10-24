@@ -38,7 +38,7 @@ const AddProduct = () => {
     }
     return (
         <div className="container mx-auto mt-4">
-            <h2 className="text-center text-5xl font-bold text-black mb-6">Add Coffee</h2>
+            <h2 className="text-center text-5xl font-bold text-black mb-6">Add Product</h2>
             <form onSubmit={handleAddCoffee}>
                 <div className="flex gap-6 mb-6">
                     <div className="form-control w-1/2">
@@ -121,7 +121,7 @@ const AddProduct = () => {
                         </label>
                     </div>
                 </div>
-                <button type="submit" className="btn btn-group w-full">Add Coffee</button>
+                <button type="submit" className="btn btn-group w-full">Add</button>
             </form>
         </div>
     );

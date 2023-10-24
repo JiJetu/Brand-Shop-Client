@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useParams } from "react-router-dom";
 import BrandSlider from "./BrandSlider";
 import BrandCards from "./BrandsCards/BrandCards";
 
@@ -6,6 +6,8 @@ import BrandCards from "./BrandsCards/BrandCards";
 const BrandDesign = () => {
 
     const brand = useLoaderData();
+
+    const {name} = useParams();
 
     return (
         <div className="flex flex-col">
@@ -19,7 +21,7 @@ const BrandDesign = () => {
                     appleCards.map(appleCard => <AppleCard key={appleCard._id} appleCard={appleCard}></AppleCard>)
                 }
             </div> */}
-            <BrandCards></BrandCards>
+            <BrandCards name={name}></BrandCards>
         </div>
     );
 };

@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import { FaDollarSign } from "react-icons/fa";
 
-const BrandCard = ({card}) => {
-    const {_id, photoURL, name, bname, type, rating, price} = card;
+const BrandCard = ({ card }) => {
+    const { _id, photoURL, name, bname, type, rating, price } = card;
     return (
-        <div className="w-full h-[300px] md:mt-9 border shadow-md rounded-lg">
+        <div className="w-full h-[500px] md:mt-9 border shadow-md rounded-lg">
             <img className="w-full h-3/5 flex-grow" src={photoURL} alt="" />
             <div className="w-full flex justify-between items-start px-4 py-3">
                 <div>
@@ -16,8 +17,8 @@ const BrandCard = ({card}) => {
                 </div>
             </div>
             <div className="px-4 py-3 flex justify-between">
-                <Link><button>Update</button></Link>
-                <Link><button>Details</button></Link>
+                <Link to={`/updateProduct/${_id}`}><button className="btn btn-outline">Update</button></Link>
+                <Link to={`/detailsProduct/${_id}`}><button className="btn btn-primary">Details</button></Link>
             </div>
         </div>
     );
