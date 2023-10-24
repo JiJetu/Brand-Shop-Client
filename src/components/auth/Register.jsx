@@ -38,8 +38,8 @@ const Register = () => {
         createUser(photo, email, password)
             .then((result) => {
                 toast("Register successfully");
+                e.target.reset();
                 navigate(location?.state ? location.state : '/')
-                toast("Register successfully");
             })
             .catch((err) => {
                 toast(err)

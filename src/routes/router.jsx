@@ -6,6 +6,7 @@ import LogIn from "../components/auth/LogIn";
 import Register from "../components/auth/Register";
 import AddProduct from "../components/pages/addProduct/AddProduct";
 import PrivateRoute from "./PrivateRoute";
+import BrandDesign from "../components/pages/home/brand/BrandDesign/BrandDesign";
 
 
 
@@ -18,6 +19,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element:<Home></Home>,
+                loader: () => fetch('http://localhost:5000/brand')
             },
             {
                 path: '/addProduct',
@@ -34,6 +36,11 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element:<Register></Register>,
+            },
+            {
+                path: '/brand/:id',
+                element:<BrandDesign></BrandDesign>,
+                loader: ({params}) => fetch(`http://localhost:5000/brand/${params.id}`)
             },
         ]
     },

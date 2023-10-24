@@ -18,7 +18,7 @@ const LogIn = () => {
         signIn(email, password)
             .then((result) => {
                 toast("LogIn successfully");
-
+                e.target.reset();
                 navigate(location?.state ? location.state : '/')
             })
             .catch((err) => {
@@ -44,7 +44,6 @@ const LogIn = () => {
                     <div className="text-center">
                         <h1 className="text-5xl font-bold">LogIn now!</h1>
                     </div>
-                    <ToastContainer />
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form onSubmit={handleLogin} className="card-body">
                             <div className="form-control">
@@ -73,6 +72,7 @@ const LogIn = () => {
                     </div>
                 </div>
             </div>
+            <ToastContainer />
         </div>
     );
 };

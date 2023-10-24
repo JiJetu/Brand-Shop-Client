@@ -1,31 +1,38 @@
+import Swal from 'sweetalert2'
+
 const AddProduct = () => {
     const handleAddCoffee = event => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const quantity = form.quantity.value;
-        const supplier = form.supplier.value;
-        const taste = form.taste.value;
-        const category = form.category.value;
-        const details = form.details.value;
+        const bname = form.bname.value;
+        const description = form.description.value;
+        const type = form.type.value;
+        const rating = form.rating.value;
+        const price = form.price.value;
         const photoURL = form.photoURL.value;
 
-        const newCoffee = { name, quantity, supplier, taste, category, details, photoURL };
-        console.log(newCoffee);
+        const newProduct = { name, bname, description, type, rating, price, photoURL };
+        console.log(newProduct);
 
         // send data to the server
-        fetch("http://localhost:5000/coffee", {
+        fetch("http://localhost:5000/product", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify(newCoffee)
+            body: JSON.stringify(newProduct)
         })
             .then(res => res.json())
             .then(data => {
                 console.log(data);
                 if (data.insertedId) {
-                    alert('added successfully')
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'added successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
                 }
             })
     }
@@ -36,64 +43,81 @@ const AddProduct = () => {
                 <div className="flex gap-6 mb-6">
                     <div className="form-control w-1/2">
                         <label className="label">
-                            <p className="label-text">Coffee Name</p>
+                            <p className="label-text">Brand Name</p>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Coffee Name" className="input input-bordered w-full" />
+                            <input type="text" name="bname" placeholder="Brand Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control w-1/2">
                         <label className="label">
-                            <p className="label-text">Available Quantity</p>
+                            <p className="label-text">Product Name</p>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="quantity" placeholder="Available Quantity" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                </div>
-                <div className="flex gap-6 mb-6">
-                    <div className="form-control w-1/2">
-                        <label className="label">
-                            <p className="label-text">Supplier Name</p>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="supplier" placeholder="Supplier Name" className="input input-bordered w-full" />
-                        </label>
-                    </div>
-                    <div className="form-control w-1/2">
-                        <label className="label">
-                            <p className="label-text">Taste</p>
-                        </label>
-                        <label className="input-group">
-                            <input type="text" name="taste" placeholder="Taste" className="input input-bordered w-full" />
+                            <input type="text" name="name" placeholder="Product Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
                 <div className="flex gap-6 mb-6">
                     <div className="form-control w-1/2">
                         <label className="label">
-                            <p className="label-text">Category</p>
+                            <p className="label-text">Photo URL</p>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="category" placeholder="Category" className="input input-bordered w-full" />
+                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control w-1/2">
                         <label className="label">
-                            <p className="label-text">Details</p>
+                            <p className="label-text">Product Type</p>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="details" placeholder="Details" className="input input-bordered w-full" />
+                            <select name="type" className="input input-bordered w-full">
+                                <option value="phone">Phone</option>
+                                <option value="computer">Computer</option>
+                                <option value="laptop">Laptop</option>
+                                <option value="tablet">Tablet</option>
+                                <option value="monitor">Monitor</option>
+                                <option value="headphone">Headphone</option>
+                                <option value="camera">Camera</option>
+                                <option value="television">Television</option>
+                                <option value="speaker">Speaker</option>
+                                <option value="keyboard">Keyboard</option>
+                                <option value="mouse">Mouse</option>
+                                <option value="printer">Printer</option>
+                                <option value="gaming console">Gaming Console</option>
+                            </select>
+                        </label>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div className="flex gap-6 mb-6">
+                    <div className="form-control w-1/2">
+                        <label className="label">
+                            <p className="label-text">Product Price</p>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="price" placeholder="Price $" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                    <div className="form-control w-1/2">
+                        <label className="label">
+                            <p className="label-text">Product Rating</p>
+                        </label>
+                        <label className="input-group">
+                            <input type="number" step="any" min={1} max={5} name="rating" placeholder="Rating" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
                 <div className="flex gap-6 mb-6">
                     <div className="form-control w-full">
                         <label className="label">
-                            <p className="label-text">Photo URL</p>
+                            <p className="label-text">Product Description</p>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="photoURL" placeholder="Photo URL" className="input input-bordered w-full" />
+                            <textarea type="text" spellCheck="true" name="description" rows="3" placeholder="Product Description..." className="px-5 p-3 border border-gray-400  w-full" />
                         </label>
                     </div>
                 </div>
