@@ -23,7 +23,7 @@ const Navbar = () => {
         {
             user && <>
                 <li><NavLink to="/addProduct">Add Product</NavLink></li>
-                <li><NavLink to="/contact">My Cart</NavLink></li>
+                <li><NavLink to="/myCart">My Cart</NavLink></li>
             </>
 
         }

@@ -9,7 +9,12 @@ const UpdateProduct = () => {
     console.log(data);
 
     if (!data) {
-        return <p>no product found</p>
+        return (Swal.fire({
+            title: 'error!',
+            text: 'no data found',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        }))
     }
 
     const handleUpdate = event => {
