@@ -8,7 +8,7 @@ import { FaMoon, FaSun } from "react-icons/fa";
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
     const [mode, setMode] = useState("light");
-
+    console.log(user);
     const handleMode = () => {
         const html = document.documentElement
         console.log("object");
@@ -82,7 +82,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <div className="invisible md:visible">
+                    <div className="invisible md:flex items-center justify-center md:visible">
                         {
                             mode == "light" ? <>
                                 <button onClick={handleMode}>
@@ -102,7 +102,11 @@ const Navbar = () => {
                             <>
                                 <label tabIndex={0} className="btn btn-ghost hidden md:inline-block btn-circle avatar mr-3">
                                     <div className="w-full rounded-full">
-                                        <img src={user.photoURL} />
+                                        <img
+                                            src={user?.photoURL || "./placeholder.svg"}
+                                            alt="User photo"
+                                            className="h-7 w-7 rounded-full object-cover"
+                                        />
                                     </div>
                                 </label>
                                 <button onClick={handleSignOut} className="btn">SignOut</button>

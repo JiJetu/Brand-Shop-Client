@@ -4,7 +4,7 @@ import { FaDollarSign } from "react-icons/fa";
 const BrandCard = ({ card }) => {
     const { _id, photoURL, name, bname, type, rating, price } = card;
     return (
-        <div className="w-full h-[500px] md:mt-9 border shadow-md rounded-lg">
+        <div className="w-full h-[500px] md:mt-9 border shadow-md rounded-lg dark:bg-slate-300">
             <img className="w-full h-3/5 flex-grow" src={photoURL} alt="" />
             <div className="w-full flex justify-between items-start px-4 py-3">
                 <div>

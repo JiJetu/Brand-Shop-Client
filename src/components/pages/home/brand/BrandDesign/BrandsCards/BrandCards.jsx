@@ -20,7 +20,6 @@ const BrandCards = ({name}) => {
             {
                 cards?.map(card => <BrandCard key={card._id} card={card}></BrandCard>)
             }
-            <h2 className="text-black"></h2>
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Brand = ({ brand }) => {
 
     return (
         <div>
-            <Link to={`/brand/${name}`}><div className="h-[250px] w-full text-center shadow-xl rounded-3xl">
+            <Link to={`/brand/${name}`}><div className="h-[250px] w-full text-center shadow-xl rounded-3xl dark:bg-slate-300">
                 <img className="p-5 w-full h-3/4" src={image} alt="" />
                 <p className="text-xl text-black my-4 font-medium">{name}</p>
             </div></Link>

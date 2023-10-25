@@ -6,7 +6,7 @@ import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, profileUpdate } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
 
@@ -38,8 +38,12 @@ const Register = () => {
         createUser(photo, email, password)
             .then((result) => {
                 toast("Register successfully");
-                e.target.reset();
-                navigate(location?.state ? location.state : '/')
+                profileUpdate(photo)
+                .then(() => {
+                    e.target.reset();
+                    navigate(location?.state ? location.state : '/')
+                })
+               
             })
             .catch((err) => {
                 toast(err)

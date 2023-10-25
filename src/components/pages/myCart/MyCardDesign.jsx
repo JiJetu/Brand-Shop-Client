@@ -26,12 +26,13 @@ const MyCardDesign = ({ addedCart }) => {
                     .then(data => {
                         console.log(data);
 
-                        if (data.acknowledged) {
+                        if (data.deletedCount > 0) {
                             Swal.fire(
                                 'Deleted!',
                                 'Your file has been deleted.',
                                 'success'
                             )
+                            window.location.reload()
                         }
                     })
             }

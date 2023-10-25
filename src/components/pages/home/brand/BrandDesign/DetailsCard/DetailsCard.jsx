@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 const DetailsCard = () => {
     const card = useLoaderData();
     const { name, bname, description, type, rating, price, photoURL } = card
-    console.log(photoURL);
+    console.log(card);
 
 
     const handleAddToCart = () => {
@@ -21,20 +21,20 @@ const DetailsCard = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                // if(card._id == data.insertedId){
-                //     return (Swal.fire({
-                //         title: 'Error!',
-                //         text: 'already added',
-                //         icon: 'error',
-                //         confirmButtonText: 'Cool'
-                //     }))
-                // }
 
                 if (data.insertedId) {
                     Swal.fire({
                         title: 'Success!',
                         text: 'added successfully',
                         icon: 'success',
+                        confirmButtonText: 'Cool'
+                    })
+                }
+                else{
+                    Swal.fire({
+                        title: 'Error!',
+                        text: 'already added',
+                        icon: 'error',
                         confirmButtonText: 'Cool'
                     })
                 }
