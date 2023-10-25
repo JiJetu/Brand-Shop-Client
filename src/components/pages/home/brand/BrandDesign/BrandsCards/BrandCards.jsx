@@ -7,7 +7,7 @@ const BrandCards = ({name}) => {
 
 
     useEffect( ()=> {
-        fetch(`http://localhost:5000/product/${name}`)
+        fetch(`https://assignment-10-puce.vercel.app/product/${name}`)
         .then(res => res.json())
         .then(data => setCards(data))
     },[name])

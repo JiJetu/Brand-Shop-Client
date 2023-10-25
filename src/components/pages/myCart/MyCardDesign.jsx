@@ -19,7 +19,7 @@ const MyCardDesign = ({ addedCart }) => {
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/addedProduct/${_id}`, {
+                fetch(`https://assignment-10-puce.vercel.app/addedProduct/${_id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())

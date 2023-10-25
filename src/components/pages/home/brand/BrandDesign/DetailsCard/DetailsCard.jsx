@@ -11,7 +11,7 @@ const DetailsCard = () => {
 
     const handleAddToCart = () => {
         // send data to the server
-        fetch("http://localhost:5000/addedProduct", {
+        fetch("https://assignment-10-puce.vercel.app/addedProduct", {
             method: "POST",
             headers: {
                 "content-type": "application/json"
