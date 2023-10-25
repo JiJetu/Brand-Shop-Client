@@ -1,11 +1,29 @@
 import { Link, NavLink } from "react-router-dom";
 import userDefaultPicture from "../../assets/user.png"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
+import { FaMoon, FaSun } from "react-icons/fa";
 
 
 const Navbar = () => {
     const { user, logOut } = useContext(AuthContext);
+    const [mode, setMode] = useState("light");
+
+    const handleMode = () => {
+        const html = document.documentElement
+        console.log("object");
+
+        if (mode == "light") {
+            html.classList.remove("light")
+            html.classList.add("dark")
+            setMode("dark")
+        }
+        else {
+            html.classList.remove("dark")
+            html.classList.add("light")
+            setMode("light")
+        }
+    }
 
     const handleSignOut = () => {
         logOut()
@@ -30,7 +48,7 @@ const Navbar = () => {
     </>
 
     return (
-        <div className="bg-base-200">
+        <div className="bg-base-200 dark:bg-zinc-800 dark:text-white">
             <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -39,6 +57,21 @@ const Navbar = () => {
                         </label>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                             {navLinks}
+                            <div>
+                                {
+                                    mode == "light" ? <>
+                                        <button onClick={handleMode}>
+                                            <FaMoon className="text-xl mr-1 md:mr-5"></FaMoon>
+                                        </button>
+                                    </>
+                                        :
+                                        <>
+                                            <button onClick={handleMode}>
+                                                <FaSun className="text-xl mr-1 md:mr-5"></FaSun>
+                                            </button>
+                                        </>
+                                }
+                            </div>
                         </ul>
                     </div>
                     <Link to={'/'} className="btn normal-case text-xl">WiredInnovators</Link>
@@ -49,6 +82,21 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
+                    <div className="invisible md:visible">
+                        {
+                            mode == "light" ? <>
+                                <button onClick={handleMode}>
+                                    <FaMoon className="text-xl mr-1 md:mr-5"></FaMoon>
+                                </button>
+                            </>
+                                :
+                                <>
+                                    <button onClick={handleMode}>
+                                        <FaSun className="text-xl mr-1 md:mr-5"></FaSun>
+                                    </button>
+                                </>
+                        }
+                    </div>
                     {
                         user ?
                             <>
